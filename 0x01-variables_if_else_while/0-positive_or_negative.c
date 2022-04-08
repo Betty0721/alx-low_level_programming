@@ -24,4 +24,7 @@ int main(void)
 	return (0);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> df0ea111b15eec2e4f5b50beae1bf2f2625f818e
