@@ -1,116 +1,54 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * print_times_table - prints the n times table, starting with 0.
+ * print_times_table - prints the times table
+ * @n: integer for which the times table will be printed
  *
- * Return : void
+ * Description: prints the times table
+ *
+ * Return: void
  */
+
 void print_times_table(int n)
 {
-	int i, j, res;
+	int row, column, product;
 
-	if ((n > 15) || (n < 0))
+	if (n >= 0 && n < 15)
 	{
-	}
-	else
-	{
-		for (i = 0; i <= n; i++)
+		for (row = 0; row <= n; row++)
 		{
-			for (j = 0; j <= n; j++)
+			for (column = 0; column <= n; column++)
 			{
-				res = i * j;
-				if (res < 10)
+				product = row * column;
+
+				if (column == 0)
+					_putchar('0');
+				else if (product < 10)
 				{
-					if (j == 0)
-						pr_3_digit(res, 0);
-					else if (j == n)
-						pr_3_digit(res, 1);
-					else
-						pr_3_digit(res, 2);
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(product % 10 + '0');
 				}
-				else if ((res >= 10) && (res < 100))
+				else if (product >= 10 && product < 100)
 				{
-					if (j == n)
-						pr_3_digit(res, 3);
-					else
-						pr_3_digit(res, 4);
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar((product / 10) % 10 + '0');
+					_putchar(product % 10 + '0');
 				}
-				else
+				else if (product > 99 && product < 1000)
 				{
-					if (j == n)
-						pr_3_digit(res, 5);
-					else
-						pr_3_digit(res, 6);
+					_putchar(',');
+					_putchar(' ');
+					_putchar(product / 100 + '0');
+					_putchar((product / 10) % 10 + '0');
+					_putchar(product % 10 + '0');
 				}
 			}
-		_putchar('\n');
+			_putchar('\n');
 		}
-	}
-}
-
-/**
- * print_spaces - print given spaces using _putchar.
- * @n: Number of spaces
- *
- * Return : void
-*/
-void print_spaces(int n)
-{
-	int i;
-
-	for (i = 0; i < n; i++)
-	{
-		_putchar(' ');
-	}
-}
-
-/**
- * pr_3_digit - prints the n times table, starting with 0.
- * @charcode: Character code
- * @fmt: Format
- *
- * Return : void
- */
-void pr_3_digit(int charcode, int fmt)
-{
-	switch (fmt)
-	{
-		case 0:
-			_putchar(charcode + '0');
-			_putchar(',');
-			break;
-		case 1:
-			print_spaces(3);
-			_putchar(charcode + '0');
-			break;
-		case 2:
-			print_spaces(3);
-			_putchar(charcode + '0');
-			_putchar(',');
-			break;
-		case 3:
-			print_spaces(2);
-			_putchar((charcode / 10) + '0');
-			_putchar((charcode % 10) + '0');
-			break;
-		case 4:
-			print_spaces(2);
-			_putchar((charcode / 10) + '0');
-			_putchar((charcode % 10) + '0');
-			_putchar(',');
-			break;
-		case 5:
-			print_spaces(1);
-			_putchar((charcode / 100) + '0');
-			_putchar((charcode / 10) % 10 + '0');
-			_putchar((charcode % 10) + '0');
-			break;
-		case 6:
-			print_spaces(1);
-			_putchar((charcode / 100) + '0');
-			_putchar((charcode / 10) % 10 + '0');
-			_putchar((charcode % 10) + '0');
-			_putchar(',');
-			break;
 	}
 }
