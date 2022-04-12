@@ -1,25 +1,28 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * print_sign - checks number
- * @n: entero recibo por main.
- * Return: 1 if c is lowercase
+ * print_sign - check the numbers
+ * @n : the num to check
+ *
+ * Return: returns 0 or 1
  */
 int print_sign(int n)
 {
-	if (n >= 1)
+	int check;
+
+	if (n > 0)
 	{
+		check = 1;
 		_putchar('+');
-		return (1);
 	}
 	else if (n == 0)
 	{
+		check = 0;
 		_putchar('0');
-		return (0);
 	}
 	else
 	{
+		check = -1;
 		_putchar('-');
-		return (-1);
 	}
+	return (check);
 }
