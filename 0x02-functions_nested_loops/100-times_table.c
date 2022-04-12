@@ -1,44 +1,50 @@
-#include <stdio.h>
+#include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
- *
+ * print_times_table - function to print tables
+ * @n : integer
  * Return: 0
  */
-int main(void)
+void print_times_table(int n)
 {
-	unsigned long int a = 0, b = 1, c;
-	unsigned long int d, e, f, g;
-	int h = 0;
+	int a, b, c;
 
-	for (h = 0; h <= 91; h++)
+	if (n > 15 || n < 0)
+		return;
+	for (a = 0; a <= n; a++)
 	{
-		c = a + b;
-		a = b;
-		b = c;
-		printf("%lu, ", c);
-	}
-	d = a % 1000;
-	a = a / 1000;
-	e = b % 1000;
-	b = b / 1000;
-	while (h <= 98)
-	{
-		g = (d + e) / 1000;
-		f = (d + e) - g * 1000;
-		c = (a + b) + g;
-		d = e;
-		e = f;
-		a = b;
-		b = c;
-		if (f >= 100)
-			printf("%lu%lu", c, f);
-		else
-			printf("%lu0%lu", c, f);
-		if (h != 98)
-			printf(" , ");
-		h++;
+		for (b = 0; b <= n; b++)
+		{
+			c = a * b;
+			if (b == 0)
+			{
+				_putchar(c + '0');
+			}
+			else if (c <= 9)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(c + '0');
+			}
+			else if (c >= 10 && c < 100)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(c / 10 + '0');
+				_putchar(c % 10 + '0');
+			}
+			else if (c >= 100)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(c / 100 + '0');
+				_putchar(c / 10 % 10 + '0');
+				_putchar(c % 10 + '0');
+			}
 		}
-	printf("\n");
-	return (0);
+		_putchar('\n');
+	}
 }
