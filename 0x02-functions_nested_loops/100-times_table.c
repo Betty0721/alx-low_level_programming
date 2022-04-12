@@ -1,47 +1,44 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
- * print_times_table - prints the n times table, starting with 0
- * @n: number of the times table
+ * main - check the code for Holberton School students.
+ *
+ * Return: 0
  */
-void print_times_table(int n)
+int main(void)
 {
-	int i, j, k;
+	unsigned long int a = 0, b = 1, c;
+	unsigned long int d, e, f, g;
+	int h = 0;
 
-	if (n >= 0 && n <= 15)
+	for (h = 0; h <= 91; h++)
 	{
-		for (i = 0; i <= n; i++)
-		{
-			for (j = 0; j <= n; j++)
-			{
-				k = j * i;
-				if (j == 0)
-				{
-					_putchar(k + '0');
-				} else if (k < 10 && j != 0)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(k + '0');
-				} else if (k >= 10 && k < 100)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar((k / 10) + '0');
-					_putchar((k % 10) + '0');
-				} else if (k >= 100)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar((k / 100) + '0');
-					_putchar(((k / 10) % 10) + '0');
-					_putchar((k % 10) + '0');
-				}
-			}
-			_putchar('\n');
-		}
+		c = a + b;
+		a = b;
+		b = c;
+		printf("%lu, ", c);
 	}
+	d = a % 1000;
+	a = a / 1000;
+	e = b % 1000;
+	b = b / 1000;
+	while (h <= 98)
+	{
+		g = (d + e) / 1000;
+		f = (d + e) - g * 1000;
+		c = (a + b) + g;
+		d = e;
+		e = f;
+		a = b;
+		b = c;
+		if (f >= 100)
+			printf("%lu%lu", c, f);
+		else
+			printf("%lu0%lu", c, f);
+		if (h != 98)
+			printf(" , ");
+		h++;
+		}
+	printf("\n");
+	return (0);
 }
