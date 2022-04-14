@@ -1,35 +1,21 @@
 #include "main.h"
-
 /**
- * print_triangle - check for a digit
- * @size : integer type
- * Return:void
- */
-
+  * print_triangle - prints a triangle
+  * @size: takes in a integer for size of triangle
+  */
 void print_triangle(int size)
 {
+	int row, column, k;
 
-	int i = 1, ii;
-
-	while (i <= size && size > 0)
+	if (size <= 0)
+		_putchar('\n');
+	for (row = 0; row < size; row++)
 	{
-		ii = 0;
-		while (ii < size - i)
-		{
+		for (column = size - row; column > 1; column--)
 			_putchar(' ');
-			ii++;
-		}
-		ii = 0;
-		while (ii < i)
-		{
+		for (k = row + column; k >= 1; k--)
 			_putchar('#');
-			ii++;
-		}
-
 		_putchar('\n');
-		i++;
 	}
-	if (i == 1)
-		_putchar('\n');
 }
 
