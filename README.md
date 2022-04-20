@@ -1,1 +1,1 @@
-Its a low level programming
+more pointers, arrays and strings
